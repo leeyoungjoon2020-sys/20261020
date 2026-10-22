@@ -1,0 +1,656 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>43주 예약지표 브리핑</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+/* Layout: full-height scroll slides, navy cover/end, white cards on cool grey, one finding-headline per slide */
+:root{
+  --navy:#06294d; --navy-2:#0b4a85; --brand:#045491; --brand-2:#609ed0; --brand-3:#dceaf6;
+  --gold:#c9a24a; --bg:#f4f6f9; --surface:#ffffff; --line:#e3e8ee; --line-2:#cfd7e1;
+  --ink:#0d1b2a; --ink-2:#465566; --muted:#7a8796;
+  --neg:#e34948; --neg-ink:#b42a2a; --neg-soft:#fde8e8; --pos:#1c8a5a; --pos-ink:#16734b; --pos-soft:#e2f4ea;
+  --range:#c9d2dd; --ref:#6b7889; --top-bg:rgba(255,255,255,.86);
+  --radius:14px;
+  --font-display:'Plus Jakarta Sans','IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+  --font:'IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --brand:#6ea8ee; --brand-2:#8fbdeb; --brand-3:#1a2d47; --gold:#d6b25e;
+    --bg:#0b121c; --surface:#131d2b; --line:#223147; --line-2:#2f4060;
+    --ink:#edf2f8; --ink-2:#b2bdcc; --muted:#7f8ca0;
+    --neg:#ec6a6a; --neg-ink:#f08b8b; --neg-soft:#3a1d22; --pos:#3cbf86; --pos-ink:#58cf9a; --pos-soft:#15322a;
+    --range:#33445e; --ref:#9aa7b8; --top-bg:rgba(11,18,28,.86);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+    --brand:#6ea8ee; --brand-2:#8fbdeb; --brand-3:#1a2d47; --gold:#d6b25e;
+    --bg:#0b121c; --surface:#131d2b; --line:#223147; --line-2:#2f4060;
+    --ink:#edf2f8; --ink-2:#b2bdcc; --muted:#7f8ca0;
+    --neg:#ec6a6a; --neg-ink:#f08b8b; --neg-soft:#3a1d22; --pos:#3cbf86; --pos-ink:#58cf9a; --pos-soft:#15322a;
+    --range:#33445e; --ref:#9aa7b8; --top-bg:rgba(11,18,28,.86);
+    color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;overflow-x:hidden;word-break:keep-all}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+.num{font-variant-numeric:tabular-nums}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+
+/* top bar */
+.topbar{position:fixed;inset:0 0 auto 0;top:env(safe-area-inset-top,0px);height:60px;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));
+  background:var(--top-bg);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line);transition:background .3s,border-color .3s}
+.topbar.on-dark{background:rgba(6,41,77,.55);border-color:rgba(255,255,255,.08)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;min-width:0}
+.brand img{height:22px;width:auto;display:block}
+.brand .logo-w{display:none}
+.on-dark .brand .logo-c{display:none}.on-dark .brand .logo-w{display:block}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .brand .logo-c{display:none}:root:not([data-theme="light"]) .brand .logo-w{display:block}}
+:root[data-theme="dark"] .brand .logo-c{display:none}:root[data-theme="dark"] .brand .logo-w{display:block}
+.brand span{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--ink-2);white-space:nowrap}
+.on-dark .brand span{color:rgba(255,255,255,.75)}
+.crumb{font-size:13px;color:var(--muted);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.on-dark .crumb{color:rgba(255,255,255,.7)}
+.tb-right{display:flex;align-items:center;gap:8px}
+.pbtn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.on-dark .pbtn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
+.progress{position:fixed;top:calc(60px + env(safe-area-inset-top,0px));left:0;height:2px;background:var(--gold);z-index:51;width:0;transition:width .2s}
+
+/* dots + pager */
+.dots{position:fixed;right:max(22px,calc(env(safe-area-inset-right,0px) + 12px));top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:12px}
+.dots a{display:block;width:10px;height:10px;border-radius:50%;background:var(--line-2);position:relative;transition:transform .2s,background .2s}
+.dots a.active{background:var(--brand);transform:scale(1.35)}
+.dots.on-dark a{background:rgba(255,255,255,.3)}.dots.on-dark a.active{background:var(--gold)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:12px;background:var(--navy);color:#fff;padding:4px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .15s}
+.dots a:hover span,.dots a:focus-visible span{opacity:1}
+.pager{position:fixed;right:max(22px,calc(env(safe-area-inset-right,0px) + 12px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 6px 4px 14px;box-shadow:0 6px 20px rgba(6,41,77,.08)}
+.pager .count{font-size:12px;color:var(--muted);font-weight:600;min-width:38px}
+.pager button{width:32px;height:32px;border-radius:50%;border:0;background:var(--bg);display:grid;place-items:center}
+.pager button:hover{background:var(--brand-3)}
+.pager svg{width:16px;height:16px}
+
+/* slides */
+.slide{min-height:100vh;padding-block:100px 80px;padding-left:max(72px,env(safe-area-inset-left,0px));padding-right:max(72px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;justify-content:center;position:relative;scroll-margin-top:0}
+.wrap{max-width:1180px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:0}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand)}
+.kicker::before{content:"";width:22px;height:2px;background:var(--gold)}
+.kicker .n{color:var(--muted);font-weight:600}
+h2{font-family:var(--font);font-size:clamp(24px,2.9vw,38px);line-height:1.3;font-weight:700;letter-spacing:-.02em;margin:14px 0 10px;max-width:30em}
+.lede{color:var(--ink-2);font-size:17px;max-width:62ch}
+.src{margin-top:24px;font-size:12px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;min-width:0}
+.grid{display:grid;gap:18px}
+.label{font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+.ctitle{font-size:15px;font-weight:700;margin-bottom:4px}
+.csub{font-size:13px;color:var(--muted);margin-bottom:14px}
+.neg{color:var(--neg-ink)} .pos{color:var(--pos-ink)}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--bg);color:var(--ink-2);border:1px solid var(--line);white-space:nowrap}
+.tag.neg{background:var(--neg-soft);border-color:transparent;color:var(--neg-ink)}
+.tag.pos{background:var(--pos-soft);border-color:transparent;color:var(--pos-ink)}
+
+/* cover */
+.cover,.end{background:radial-gradient(1200px 700px at 85% 20%,rgba(96,158,208,.35),transparent 60%),linear-gradient(160deg,#06294d 0%,#073763 55%,#0b4a85 100%);color:#fff;overflow:hidden}
+.cover::after,.end::after{content:"";position:absolute;inset:auto -10% -38% -10%;height:70%;background:repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 2px,transparent 2px 46px);transform:skewY(-6deg);pointer-events:none}
+.cover .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.cover .eyebrow{font-family:var(--font-display);font-size:13px;letter-spacing:.16em;font-weight:700;color:#8fbdeb}
+.cover h1{font-size:clamp(38px,5.4vw,68px);line-height:1.15;font-weight:700;letter-spacing:-.03em;margin:18px 0}
+.cover h1 em{font-style:normal;color:#d6b25e}
+.cover .sub{font-size:18px;color:rgba(255,255,255,.82)}
+.cover .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.cover .meta span{font-size:13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px;color:rgba(255,255,255,.9)}
+.cover .hint{position:absolute;left:max(72px,env(safe-area-inset-left,0px));bottom:calc(34px + env(safe-area-inset-bottom,0px));font-size:13px;color:rgba(255,255,255,.6);z-index:1;display:flex;gap:8px;align-items:center}
+.cover .hint kbd{font-family:inherit;border:1px solid rgba(255,255,255,.3);border-radius:5px;padding:1px 7px;font-size:12px}
+.hero-stat{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:18px;padding:26px;backdrop-filter:blur(4px)}
+.hero-stat .l{font-size:13px;color:rgba(255,255,255,.7)}
+.hero-stat .v{font-family:var(--font-display);font-size:clamp(46px,5vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:6px 0 18px}
+.hero-stat .v small{font-size:.4em;font-weight:600;margin-left:4px;color:rgba(255,255,255,.75)}
+.yr{display:grid;grid-template-columns:52px 1fr 64px;gap:10px;align-items:center;font-size:13px;margin-top:10px;color:rgba(255,255,255,.8)}
+.yr .b{height:10px;border-radius:5px;background:rgba(255,255,255,.18);overflow:hidden}
+.yr .b i{display:block;height:100%;background:rgba(255,255,255,.45);border-radius:5px}
+.yr.now .b i{background:#d6b25e}
+.yr.now{color:#fff;font-weight:600}
+.yr .n{text-align:right}
+
+/* KPI */
+.kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin:28px 0 20px}
+.kpi{padding:20px 20px 18px;position:relative;overflow:hidden}
+.kpi .v{font-family:var(--font-display);font-size:clamp(26px,2.8vw,36px);font-weight:800;letter-spacing:-.02em;margin:6px 0 2px;line-height:1.1}
+.kpi .v small{font-size:.5em;font-weight:600;color:var(--ink-2);margin-left:3px}
+.kpi .d{font-size:13px;color:var(--ink-2)}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--brand)}
+.kpi.k-neg::before{background:var(--neg)}
+.kpi.k-gold::before{background:var(--gold)}
+.takes{grid-template-columns:repeat(2,minmax(0,1fr))}
+.take{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
+.take .i{width:40px;height:40px;border-radius:12px;background:var(--brand-3);color:var(--brand);display:grid;place-items:center;font-weight:800;font-family:var(--font-display)}
+.take h3{font-size:16.5px;font-weight:700;margin-bottom:4px;line-height:1.4}
+.take p{font-size:14.5px;color:var(--ink-2)}
+.take.alert .i{background:var(--neg-soft);color:var(--neg-ink)}
+.take a{font-size:13px;color:var(--brand);font-weight:600;text-decoration:none;display:inline-block;margin-top:6px}
+
+/* layout helpers */
+.two{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);margin-top:26px;align-items:start}
+.two.even{grid-template-columns:repeat(2,minmax(0,1fr))}
+.two.wide-l{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+svg.chart{width:100%;height:auto;display:block;overflow:visible}
+.chart text{font-family:var(--font);fill:var(--ink-2);font-size:12px}
+.chart .t-strong{fill:var(--ink);font-weight:600}
+.chart .t-muted{fill:var(--muted)}
+.chart .t-acc{fill:var(--brand);font-weight:700}
+.chart .grid-l{stroke:var(--line);stroke-width:1}
+.chart .axis{stroke:var(--line-2);stroke-width:1}
+.chart .bar-muted{fill:var(--range)}
+.chart .bar-acc{fill:var(--brand)}
+.chart .range{stroke:var(--range);stroke-width:8;stroke-linecap:round}
+.chart .avg{stroke:var(--ref);stroke-width:2}
+.chart .dot{fill:var(--brand)}
+.chart .refline{stroke:var(--gold);stroke-width:1.5;stroke-dasharray:4 4}
+.chart .neg-bar{fill:var(--neg)}
+.chart .lbl-in{fill:#fff;font-weight:600;font-size:11.5px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--ink-2);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:9px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--muted);font-size:12px}
+th:first-child,td:first-child{text-align:left}
+tfoot td{font-weight:700;border-top:1.5px solid var(--line-2);border-bottom:0}
+td.muted{color:var(--muted)}
+td b{font-weight:700}
+
+/* progress bars vs target */
+.pace{display:flex;flex-direction:column;gap:18px}
+.pace-row .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13.5px;margin-bottom:7px}
+.pace-row .top b{font-family:var(--font-display);font-size:20px;font-weight:800;letter-spacing:-.01em}
+.track{position:relative;height:14px;border-radius:7px;background:var(--bg);border:1px solid var(--line)}
+.track .fill{position:absolute;inset:0 auto 0 0;border-radius:7px;background:var(--brand)}
+.track .ly{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--ink-2)}
+.track .ly::after{content:attr(data-l);position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--muted);white-space:nowrap}
+.pace-row .foot{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+
+/* country bars */
+.cbar{display:grid;grid-template-columns:64px 1fr 72px;gap:10px;align-items:center;font-size:13px;padding:5px 0}
+.cbar .b{height:10px;background:var(--bg);border-radius:5px;overflow:hidden}
+.cbar .b i{display:block;height:100%;background:var(--range);border-radius:5px}
+.cbar.hl .b i{background:var(--brand)}
+.cbar .n{text-align:right;color:var(--ink-2)}
+.split{display:flex;height:30px;border-radius:8px;overflow:hidden;margin:6px 0 14px;font-size:12.5px;font-weight:600}
+.split span{display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden}
+.split .dom{background:var(--range);color:var(--ink)}
+.split .ovs{background:var(--brand);color:#fff}
+
+/* actions */
+.acts{grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));margin-top:26px}
+.act{display:flex;flex-direction:column;gap:8px}
+.act .hd{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.act h3{font-size:16.5px;font-weight:700;line-height:1.4}
+.act p{font-size:14px;color:var(--ink-2)}
+.act .who{font-size:12px;color:var(--muted);margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.checks{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:12px}
+.checks li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.checks .pg{font-family:var(--font-display);font-size:12px;font-weight:700;color:var(--brand);background:var(--brand-3);border-radius:8px;padding:4px 9px;white-space:nowrap}
+.checks p{font-size:15px;color:var(--ink-2)}
+.checks b{color:var(--ink);font-weight:600}
+
+.end .wrap{position:relative;z-index:1;align-items:flex-start;gap:18px}
+.end h2{font-size:clamp(40px,5vw,64px);color:#fff;margin:0}
+.end p{color:rgba(255,255,255,.8);font-size:17px;max-width:56ch}
+.end img{height:34px;width:auto;margin-bottom:10px}
+
+/* present mode */
+body.present .slide{padding-block:84px 60px}
+body.present .dots,body.present .pager{opacity:.35}
+body.present .dots:hover,body.present .pager:hover{opacity:1}
+
+@media (max-width:1000px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two,.two.even,.two.wide-l,.takes{grid-template-columns:minmax(0,1fr)}
+  .cover .wrap{grid-template-columns:minmax(0,1fr);gap:32px}
+}
+@media (max-width:640px){
+  .slide{min-height:auto;padding-block:92px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .cover{min-height:100vh}
+  .topbar{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .crumb,.dots,.brand span{display:none}
+  .cover .hint{display:none}
+  .kpis{grid-template-columns:minmax(0,1fr)}
+  .card{padding:18px}
+  .lede{font-size:15.5px}
+}
+
+/* language switcher + per-language type */
+html[lang="zh"]{--font:'Noto Sans SC','PingFang SC','Microsoft YaHei','IBM Plex Sans KR',system-ui,sans-serif;--font-display:'Plus Jakarta Sans','Noto Sans SC','PingFang SC',system-ui,sans-serif}
+html[lang="th"]{--font:'IBM Plex Sans Thai','Leelawadee UI','Tahoma',system-ui,sans-serif;--font-display:'Plus Jakarta Sans','IBM Plex Sans Thai',system-ui,sans-serif}
+html[lang="en"]{--font:'Plus Jakarta Sans','IBM Plex Sans KR',system-ui,sans-serif}
+html[lang="zh"] body,html[lang="th"] body,html[lang="en"] body{word-break:normal;overflow-wrap:break-word}
+html[lang="th"] body{line-height:1.7}
+html[lang="th"] h2,html[lang="th"] .cover h1{line-height:1.45;letter-spacing:0}
+html[lang="zh"] h2,html[lang="zh"] .cover h1{letter-spacing:0}
+html[lang="en"] h2{letter-spacing:-.025em}
+.lang{display:flex;gap:2px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px}
+.on-dark .lang{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+.lang button{border:0;background:transparent;color:var(--ink-2);font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;min-width:40px;white-space:nowrap}
+.on-dark .lang button{color:rgba(255,255,255,.8)}
+.lang button[aria-pressed="true"]{background:var(--brand);color:#fff}
+.on-dark .lang button[aria-pressed="true"]{background:#fff;color:#06294d}
+@media (max-width:900px){.crumb{display:none}}
+@media (max-width:640px){.pbtn{display:none}.lang button{padding:5px 8px;min-width:0}}
+</style>
+<header class="topbar on-dark" id="topbar">
+  <a class="brand" href="#s1"><img class="logo-c" alt="TOURLINKS" src="data:image/png;base64,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"><img class="logo-w" alt="TOURLINKS" src="data:image/png;base64,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"><span>WEEKLY BOOKING REVIEW</span></a>
+  <div class="crumb" id="crumb"></div>
+  <div class="tb-right">
+    <button class="pbtn" id="presentBtn" type="button">발표 모드</button>
+    <div class="lang" id="langSw" role="group" aria-label="Language">
+      <button type="button" data-lang="zh" lang="zh">中文</button>
+      <button type="button" data-lang="th" lang="th">ไทย</button>
+      <button type="button" data-lang="ko" lang="ko" aria-pressed="true">한국어</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </div>
+  </div>
+</header>
+<div class="progress" id="progress"></div>
+<nav class="dots on-dark" id="dots" aria-label="Slides"></nav>
+<div class="pager">
+  <span class="count num" id="count">1 / 8</span>
+  <button type="button" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button>
+  <button type="button" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+</div>
+
+<main>
+<section class="slide cover" id="s1" data-dark="1">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" data-i="eyebrow">TOURLINKS · 예약지표관리</div>
+      <h1 data-i="h1">43주 주간회의<br><em>예약지표 브리핑</em></h1>
+      <p class="sub" data-i="sub">2026년 42주차 예약 실적과 10·11월 판매 현황</p>
+      <div class="meta"><span data-i="m1">회의일 2026.10.22 (목)</span><span data-i="m2">기준 42주차 실적</span><span data-i="m3">단위 명 · 원</span></div>
+    </div>
+    <div class="hero-stat">
+      <div class="l" data-i="heroL">42주 전체 예약</div>
+      <div class="v num">1,272<small data-i="u_pax">명</small></div>
+      <div class="l" data-i="heroL2">같은 주차 3개년 비교</div>
+      <div id="heroYears"></div>
+    </div>
+  </div>
+  <div class="hint" data-i="hint"><kbd>↓</kbd> 스크롤하거나 방향키로 넘기세요</div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="wrap">
+    <div class="kicker"><span data-i="k2">요약</span> <span class="n">01</span></div>
+    <h2 data-i="h2_2">42주 예약은 3개년 중 가장 적었습니다. 예약실이 버티는 사이 GSA·인바운드가 실적을 끌어내렸고, 다음 주 과제는 11월 갭 1,923명입니다.</h2>
+    <div class="grid kpis">
+      <div class="card kpi k-neg"><div class="label" data-i="kl1">42주 예약</div><div class="v num">1,272<small data-i="u_pax">명</small></div><div class="d" data-i="kd1">3개년 평균 1,379명 대비 <span class="neg">−107명</span></div></div>
+      <div class="card kpi"><div class="label" data-i="kl2">10월 인원 달성률</div><div class="v num">75.2<small>%</small></div><div class="d" data-i="kd2">2,604명 / 목표 3,463명 · 매출 <span class="pos">+1.8%</span></div></div>
+      <div class="card kpi k-gold"><div class="label" data-i="kl3">11월 인원 달성률</div><div class="v num">45.3<small>%</small></div><div class="d" data-i="kd3">1,591명 / 목표 3,514명</div></div>
+      <div class="card kpi k-neg"><div class="label" data-i="kl4">11월 남은 목표</div><div class="v num">1,923<small data-i="u_pax">명</small></div><div class="d" data-i="kd4">출발 5~6주 전 기준</div></div>
+    </div>
+    <div class="grid takes">
+      <div class="card take"><div class="i">1</div><div><h3 data-i="t1h">예약실은 평년 이상을 지켰습니다</h3><p data-i="t1p">42주 1,095명으로 같은 주차 평균 1,032명보다 63명 많았고, 10월 판매는 전년보다 5.1% 늘었습니다.</p><a href="#s3" data-i="t1a">주간 예약 추세 →</a></div></div>
+      <div class="card take alert"><div class="i">2</div><div><h3 data-i="t2h">GSA는 전년의 절반 아래입니다</h3><p data-i="t2p">42주 109명으로 평균의 61%였고, 10월 −58.2%, 11월 −70.8%로 하락폭이 커지고 있습니다.</p><a href="#s6" data-i="t2a">팀별 현황 →</a></div></div>
+      <div class="card take"><div class="i">3</div><div><h3 data-i="t3h">판매 무게가 11~12월로 넘어갔습니다</h3><p data-i="t3p">이번 주 예약의 61%가 11월 출발입니다. 12월 출발은 88%가 해외라 좌석과 골프장 재고 확보가 필요합니다.</p><a href="#s4" data-i="t3a">예약 분포 →</a></div></div>
+      <div class="card take"><div class="i">4</div><div><h3 data-i="t4h">MICE만 목표를 넘었습니다</h3><p data-i="t4p">10월 종합달성률 120.8%, 인당 매출 105만 원으로 수익 기여가 가장 큽니다. 11월도 92.9%입니다.</p><a href="#s6" data-i="t2a">팀별 현황 →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="wrap">
+    <div class="kicker"><span data-i="k3">주간 예약 추세</span> <span class="n">02</span></div>
+    <h2 data-i="h2_3">42주 예약은 평년보다 107명 적었지만, 예약실은 평년보다 63명 많았습니다</h2>
+    <p class="lede" data-i="lede3">회색 막대는 2024·2025년 같은 주차의 최저–최고, 눈금은 평균, 파란 점은 2026년입니다. GSA는 다섯 주 중 네 주가 평년 범위 아래였습니다.</p>
+    <div class="grid two even">
+      <div class="card"><div class="ctitle" data-i="n_res">예약실</div><div class="csub" data-i="csubW">38~42주차 · 단위 명</div><svg class="chart" id="cRes" viewBox="0 0 520 300" role="img"></svg></div>
+      <div class="card"><div class="ctitle">GSA</div><div class="csub" data-i="csubW">38~42주차 · 단위 명</div><svg class="chart" id="cGsa" viewBox="0 0 520 300" role="img"></svg></div>
+    </div>
+    <div class="grid two wide-l" style="margin-top:18px">
+      <div class="card"><div class="ctitle" data-i="ctT">42주 국가 × 팀 예약</div><div class="csub" data-i="ctS">국내 52.8%, 예약실 86.1% · 단위 명</div><div class="tw"><table class="num" id="tCountry"></table></div></div>
+      <div class="card"><div class="ctitle" data-i="cmT">지역 구성</div><div class="csub" data-i="cmS">42주 1,272명 기준</div><div id="cCountry"></div></div>
+    </div>
+    <p class="src" data-i="src3">자료: 2026년 43주 주간회의 예약지표 (예약추세 2~3쪽)</p>
+  </div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="wrap">
+    <div class="kicker"><span data-i="k4">예약 분포</span> <span class="n">03</span></div>
+    <h2 data-i="h2_4">이번 주 예약의 61%가 11월 출발입니다. 10월 출발은 마감 단계이고, 12월은 해외가 88%입니다</h2>
+    <div class="grid two wide-l">
+      <div class="card"><div class="ctitle" data-i="dT">예약 주차별 출발월 비중</div><div class="csub" data-i="dS">각 주에 들어온 예약이 어느 달 출발인지 · 단위 %</div><svg class="chart" id="cDist" viewBox="0 0 640 300" role="img"></svg><div class="legend" id="lDist"></div></div>
+      <div class="card"><div class="ctitle" data-i="sT">출발월별 국내 · 해외 구성</div><div class="csub" data-i="sS">이번 주 예약 기준 · 단위 명</div><div id="cSplit"></div></div>
+    </div>
+    <p class="src" data-i="src4">자료: 2026년 43주 주간회의 예약지표 (예약분포 5쪽).</p>
+  </div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="wrap">
+    <div class="kicker"><span data-i="k5">전사 판매 현황</span> <span class="n">04</span></div>
+    <h2 data-i="h2_5">10월은 인당 매출이 올라 매출이 전년을 넘었고, 11월은 목표까지 1,923명이 남았습니다</h2>
+    <p class="lede" data-i="lede5">항공·지사 제외 기준입니다. 막대는 목표 대비 실적, 세로선은 전년 같은 달 실적입니다.</p>
+    <div class="grid two even">
+      <div class="card"><div class="ctitle" data-i="c10T">10월 출발</div><div class="csub" data-i="c10S">종합달성률 69.6%</div><div class="pace" id="p10"></div></div>
+      <div class="card"><div class="ctitle" data-i="c11T">11월 출발</div><div class="csub" data-i="c11S">종합달성률 46.6% · 6월·8월보다 앞선 페이스</div><div class="pace" id="p11"></div></div>
+    </div>
+    <div class="card" style="margin-top:18px"><div class="tw"><table class="num" id="tSales"></table></div></div>
+    <p class="src" data-i="src5">자료: 2026년 43주 주간회의 예약지표 (6쪽). W-3 기간 워킹데이 축소로 10월 모객 증가세가 둔화됐습니다.</p>
+  </div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="wrap">
+    <div class="kicker"><span data-i="k6">팀별 현황</span> <span class="n">05</span></div>
+    <h2 data-i="h2_6">MICE만 목표를 넘었고, GSA·항공·인바운드는 10월 종합달성률이 35% 이하입니다</h2>
+    <div class="grid two">
+      <div class="card"><div class="ctitle" data-i="rT">종합달성률</div><div class="csub" data-i="rS">인원·매출 달성률 종합 · 점선은 목표 100%</div><svg class="chart" id="cTeam" viewBox="0 0 460 330" role="img"></svg><div class="legend" id="lTeam"></div></div>
+      <div class="card"><div class="ctitle" data-i="tT">팀별 10월 실적</div><div class="csub" data-i="tS">전년 같은 달 대비 · 단위 명(항공은 건)</div><div class="tw"><table class="num" id="tTeam"></table></div></div>
+    </div>
+    <p class="src" data-i="src6">자료: 2026년 43주 주간회의 예약지표 (7~9쪽). 항공은 11월 목표가 없어 10월만 표시했습니다.</p>
+  </div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="wrap">
+    <div class="kicker"><span data-i="k7">다음 주 논의</span> <span class="n">06</span></div>
+    <h2 data-i="h2_7">다음 주에 결정할 다섯 가지</h2>
+    <div class="grid acts">
+      <div class="card act"><div class="hd"><h3 data-i="a1h">11월 목표 갭 1,923명</h3><span class="tag neg" data-i="a1t">최우선</span></div><p data-i="a1p">예약실 국내 상품을 중심으로 막판 프로모션을 할지 결정합니다. 11월 출발의 83.6%가 국내입니다.</p><div class="who" data-i="a1w">예약실 · 전사</div></div>
+      <div class="card act"><div class="hd"><h3 data-i="a2h">GSA 회복 방안</h3><span class="tag neg" data-i="a2t">긴급</span></div><p data-i="a2p">거래처별 감소 원인을 점검합니다. 10월 −58.2%, 11월 −70.8%로 하락폭이 커지고 있습니다.</p><div class="who" data-i="a2w">GSA&amp;B2B 영업팀</div></div>
+      <div class="card act"><div class="hd"><h3 data-i="a3h">인바운드 11월 공백</h3><span class="tag" data-i="a3t">확인</span></div><p data-i="a3p">11월 목표 246명 대비 7명입니다. 확정 대기 중인 단체가 있는지 확인합니다.</p><div class="who" data-i="a3w">인바운드</div></div>
+      <div class="card act"><div class="hd"><h3 data-i="a4h">12월 해외 재고 확보</h3><span class="tag" data-i="a4t">준비</span></div><p data-i="a4p">12월 예약의 88%가 해외입니다. 태국·중국 상품의 좌석과 골프장 티타임을 미리 잡아둡니다.</p><div class="who" data-i="a4w">예약실 · MICE팀</div></div>
+      <div class="card act"><div class="hd"><h3 data-i="a5h">항공 본사 의존도</h3><span class="tag" data-i="a5t">논의</span></div><p data-i="a5p">항공 판매의 42.3%(건수), 44.3%(매출)가 본사 물량입니다. 외부 판매 확대 방향을 논의합니다.</p><div class="who" data-i="a5w">항공</div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide end" id="s8" data-dark="1">
+  <div class="wrap">
+    <img src="data:image/png;base64,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" alt="TOURLINKS">
+    <h2 data-i="endH">감사합니다</h2>
+    <p data-i="endP">다음 주 44주 회의에서는 11월 갭 진행 상황과 GSA 점검 결과를 먼저 공유합니다.</p>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg';
+let LANG='ko';
+const LOC={ko:'ko-KR',en:'en-US',zh:'zh-CN',th:'th-TH'};
+const fmt=n=>n.toLocaleString('en-US');
+function el(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e;}
+function tip(e,s){el('title',{},e,s);}
+
+/* ---------- static translations (Korean is read from the page) ---------- */
+const S={
+en:{eyebrow:'TOURLINKS · BOOKING KPIs',h1:'Week 43 Meeting<br><em>Booking KPI Briefing</em>',sub:'Week 42 bookings and October–November sales, 2026',m1:'Meeting 22 Oct 2026 (Thu)',m2:'Basis: Week 42 results',m3:'Units: pax · KRW',heroL:'Week 42 total bookings',heroL2:'Same week, three-year comparison',u_pax:'pax',hint:'<kbd>↓</kbd> Scroll or use the arrow keys',
+ k2:'Summary',h2_2:'Week 42 bookings were the lowest in three years. Reservations held up while GSA and Inbound pulled results down; next week\'s priority is the 1,923-pax gap for November.',
+ kl1:'Week 42 bookings',kd1:'vs 3-year avg 1,379 <span class="neg">−107</span>',kl2:'Oct pax vs target',kd2:'2,604 / target 3,463 · revenue <span class="pos">+1.8%</span>',kl3:'Nov pax vs target',kd3:'1,591 / target 3,514',kl4:'Nov gap to target',kd4:'5–6 weeks before departure',
+ t1h:'Reservations stayed above normal',t1p:'1,095 pax in Week 42, 63 above the same-week average of 1,032. October sales were up 5.1% on last year.',t1a:'Weekly trend →',
+ t2h:'GSA is below half of last year',t2p:'109 pax in Week 42, 61% of average. October −58.2% and November −70.8%: the decline is widening.',t2a:'By team →',
+ t3h:'Sales have shifted to Nov–Dec',t3p:'61% of this week\'s bookings depart in November. 88% of December departures are overseas, so seats and course inventory must be secured.',t3a:'Booking mix →',
+ t4h:'Only MICE beat its target',t4p:'October overall achievement 120.8% and KRW 1.05M per head, the largest profit contribution. November is at 92.9%.',
+ k3:'Weekly trend',h2_3:'Week 42 bookings were 107 below normal, but Reservations was 63 above',lede3:'Grey bars show the low–high range for the same week in 2024–2025, ticks the average, blue dots 2026. GSA was below its normal range in four of five weeks.',
+ n_res:'Reservations',csubW:'Weeks 38–42 · pax',ctT:'Week 42 bookings by country × team',ctS:'Korea 52.8%, Reservations 86.1% · pax',cmT:'Destination mix',cmS:'Based on 1,272 pax in Week 42',src3:'Source: Week 43 meeting booking KPIs, 2026 (trend, pp. 2–3)',
+ k4:'Booking mix',h2_4:'61% of this week\'s bookings depart in November. October is nearly closed, and December is 88% overseas',dT:'Departure month share by booking week',dS:'Which month each week\'s bookings depart in · %',sT:'Domestic vs overseas by departure month',sS:'This week\'s bookings · pax',src4:'Source: Week 43 meeting booking KPIs (mix, p. 5).',
+ k5:'Company-wide sales',h2_5:'October revenue beat last year on higher spend per head; November still needs 1,923 pax to hit target',lede5:'Excludes air ticketing and branches. Bars show results against target; the vertical line marks the same month last year.',c10T:'October departures',c10S:'Overall achievement 69.6%',c11T:'November departures',c11S:'Overall achievement 46.6% · ahead of June and August pace',src5:'Source: Week 43 meeting booking KPIs (p. 6). Fewer working days in W-3 slowed October\'s booking growth.',
+ k6:'By team',h2_6:'Only MICE beat its target; GSA, Air and Inbound were at 35% or below for October',rT:'Overall achievement',rS:'Pax and revenue combined · dashed line is the 100% target',tT:'October results by team',tS:'vs same month last year · pax (air in bookings)',src6:'Source: Week 43 meeting booking KPIs (pp. 7–9). Air has no November target, so only October is shown.',
+ k7:'Next week',h2_7:'Five decisions for next week',
+ a1h:'November gap: 1,923 pax',a1t:'Top priority',a1p:'Decide whether to run a last-minute promotion led by Reservations\' domestic products. 83.6% of November departures are domestic.',a1w:'Reservations · Company-wide',
+ a2h:'GSA recovery plan',a2t:'Urgent',a2p:'Review the causes of decline by partner. October −58.2% and November −70.8%: the drop is widening.',a2w:'GSA & B2B Sales',
+ a3h:'Inbound gap in November',a3t:'Check',a3p:'7 pax against a November target of 246. Check whether any groups are awaiting confirmation.',a3w:'Inbound',
+ a4h:'Secure December overseas inventory',a4t:'Prepare',a4p:'88% of December bookings are overseas. Lock in seats and tee times for Thailand and China products early.',a4w:'Reservations · MICE',
+ a5h:'Air ticketing reliance on HQ',a5t:'Discuss',a5p:'42.3% of air bookings (44.3% of revenue) come from HQ. Discuss how to grow external sales.',a5w:'Air ticketing',
+ k8:'Data checks',h2_8:'Four items to check in the source deck',lede8:'Figures in this briefing are taken as-is from the source. These items should be corrected in next week\'s deck.',
+ c1pg:'Cover',c1:'The cover says <b>"Week 43 meeting"</b> but the body uses <b>Week 42</b> data. Confirm this is intended.',c2pg:'p. 5',c2:'The December country table totals <b>100 pax</b>. At a 25.5% December share it should be <b>about 250</b>.',c3:'The last row of the share table is labelled <b>"Week 41"</b>. If it is Week 42 data, fix the label, and check that the first column <b>"Sep"</b> matches the departure month.',c4pg:'p. 8',c4:'The MICE note says <b>"166 in October"</b>; per the table this is the <b>November</b> figure.',
+ endH:'Thank you',endP:'At the Week 44 meeting we will first share progress on the November gap and the GSA review.'},
+zh:{eyebrow:'TOURLINKS · 预订指标管理',h1:'第43周周会<br><em>预订指标简报</em>',sub:'2026年第42周预订业绩及10–11月销售情况',m1:'会议日期 2026.10.22（周四）',m2:'基准：第42周业绩',m3:'单位：人 · 韩元',heroL:'第42周总预订',heroL2:'同周三年对比',u_pax:'人',hint:'<kbd>↓</kbd> 滚动或使用方向键翻页',
+ k2:'摘要',h2_2:'第42周预订为三年来最低。预订部表现稳定，但GSA和入境业务拖累了整体业绩；下周重点是11月1,923人的缺口。',
+ kl1:'第42周预订',kd1:'较三年平均1,379人 <span class="neg">−107人</span>',kl2:'10月人数达成率',kd2:'2,604人 / 目标3,463人 · 销售额 <span class="pos">+1.8%</span>',kl3:'11月人数达成率',kd3:'1,591人 / 目标3,514人',kl4:'11月剩余目标',kd4:'以出发前5–6周为基准',
+ t1h:'预订部高于往年水平',t1p:'第42周1,095人，比同周平均1,032人多63人；10月销售同比增长5.1%。',t1a:'每周预订趋势 →',
+ t2h:'GSA不到去年的一半',t2p:'第42周109人，为平均值的61%；10月−58.2%，11月−70.8%，降幅持续扩大。',t2a:'各团队情况 →',
+ t3h:'销售重心已转向11–12月',t3p:'本周61%的预订为11月出发；12月出发的88%为海外，需提前确保机位和球场资源。',t3a:'预订分布 →',
+ t4h:'只有MICE超额完成目标',t4p:'10月综合达成率120.8%，人均销售额105万韩元，利润贡献最大；11月为92.9%。',
+ k3:'每周预订趋势',h2_3:'第42周预订比往年少107人，但预订部比往年多63人',lede3:'灰色条为2024–2025年同周最低–最高，刻度为平均值，蓝点为2026年。GSA五周中有四周低于往年区间。',
+ n_res:'预订部',csubW:'第38–42周 · 单位：人',ctT:'第42周 国家 × 团队预订',ctS:'国内52.8%，预订部86.1% · 单位：人',cmT:'地区构成',cmS:'以第42周1,272人为基准',src3:'资料：2026年第43周周会预订指标（预订趋势第2–3页）',
+ k4:'预订分布',h2_4:'本周预订的61%为11月出发。10月已接近收尾，12月88%为海外',dT:'各预订周的出发月份占比',dS:'每周新增预订的出发月份 · 单位：%',sT:'各出发月份国内 · 海外构成',sS:'以本周预订为基准 · 单位：人',src4:'资料：第43周周会预订指标（预订分布第5页）。',
+ k5:'全公司销售情况',h2_5:'10月人均销售额提升，销售额超过去年；11月距目标还差1,923人',lede5:'不含机票及分公司。条形为目标对比实绩，竖线为去年同月实绩。',c10T:'10月出发',c10S:'综合达成率69.6%',c11T:'11月出发',c11S:'综合达成率46.6% · 进度快于6月、8月',src5:'资料：第43周周会预订指标（第6页）。W-3期间工作日减少，10月招募增速放缓。',
+ k6:'各团队情况',h2_6:'只有MICE超额完成目标；GSA、机票、入境10月综合达成率均在35%以下',rT:'综合达成率',rS:'人数与销售额综合 · 虚线为目标100%',tT:'各团队10月实绩',tS:'同比去年同月 · 单位：人（机票为件）',src6:'资料：第43周周会预订指标（第7–9页）。机票无11月目标，仅显示10月。',
+ k7:'下周议题',h2_7:'下周需决定的五件事',
+ a1h:'11月目标缺口1,923人',a1t:'最优先',a1p:'决定是否以预订部国内产品为主开展冲刺促销。11月出发的83.6%为国内。',a1w:'预订部 · 全公司',
+ a2h:'GSA恢复方案',a2t:'紧急',a2p:'按合作方逐一检查下滑原因。10月−58.2%，11月−70.8%，降幅扩大。',a2w:'GSA&B2B营业部',
+ a3h:'入境11月空档',a3t:'确认',a3p:'11月目标246人，实绩仅7人。确认是否有待确认的团体。',a3w:'入境',
+ a4h:'确保12月海外资源',a4t:'准备',a4p:'12月预订的88%为海外。提前锁定泰国、中国产品的机位和开球时间。',a4w:'预订部 · MICE组',
+ a5h:'机票对总部的依赖',a5t:'讨论',a5p:'机票销售的42.3%（件数）和44.3%（销售额）来自总部。讨论扩大外部销售的方向。',a5w:'机票',
+ k8:'资料确认',h2_8:'原资料中需确认的四项',lede8:'本简报数字均照搬原资料。以下各项建议在下周资料中更正。',
+ c1pg:'封面',c1:'封面为<b>"第43周周会"</b>，正文为<b>第42周</b>数据。请确认是否有意如此。',c2pg:'第5页',c2:'12月国家表合计为<b>100人</b>。按12月占比25.5%计算应为<b>约250人</b>。',c3:'占比表最后一行标为<b>"第41周"</b>。如为第42周数据需修改标签，首列<b>"9月"</b>也需确认是否与出发月份一致。',c4pg:'第8页',c4:'MICE说明中的<b>"10月166人"</b>按表格应为<b>11月</b>数据。',
+ endH:'谢谢',endP:'第44周会议将首先分享11月缺口进展和GSA检查结果。'},
+th:{eyebrow:'TOURLINKS · ตัวชี้วัดการจอง',h1:'ประชุมประจำสัปดาห์ที่ 43<br><em>สรุปตัวชี้วัดการจอง</em>',sub:'ยอดจองสัปดาห์ที่ 42 และยอดขายเดือน ต.ค.–พ.ย. 2026',m1:'ประชุม 22 ต.ค. 2026 (พฤหัสฯ)',m2:'อ้างอิงผลสัปดาห์ที่ 42',m3:'หน่วย: คน · วอน',heroL:'ยอดจองรวมสัปดาห์ที่ 42',heroL2:'เทียบสัปดาห์เดียวกัน 3 ปี',u_pax:'คน',hint:'<kbd>↓</kbd> เลื่อนหรือใช้ปุ่มลูกศร',
+ k2:'สรุป',h2_2:'ยอดจองสัปดาห์ที่ 42 ต่ำสุดในรอบ 3 ปี ฝ่ายจองยังรักษาระดับได้ แต่ GSA และอินบาวด์ฉุดผลรวมลง งานสำคัญสัปดาห์หน้าคือช่องว่างเดือน พ.ย. 1,923 คน',
+ kl1:'ยอดจองสัปดาห์ที่ 42',kd1:'เทียบค่าเฉลี่ย 3 ปี 1,379 คน <span class="neg">−107</span>',kl2:'อัตราบรรลุเป้าคน ต.ค.',kd2:'2,604 / เป้า 3,463 คน · รายได้ <span class="pos">+1.8%</span>',kl3:'อัตราบรรลุเป้าคน พ.ย.',kd3:'1,591 / เป้า 3,514 คน',kl4:'ส่วนที่ยังขาดเดือน พ.ย.',kd4:'ณ 5–6 สัปดาห์ก่อนเดินทาง',
+ t1h:'ฝ่ายจองยังสูงกว่าค่าปกติ',t1p:'สัปดาห์ที่ 42 ได้ 1,095 คน สูงกว่าค่าเฉลี่ย 1,032 คน อยู่ 63 คน ยอดขาย ต.ค. เพิ่มขึ้น 5.1% จากปีก่อน',t1a:'แนวโน้มรายสัปดาห์ →',
+ t2h:'GSA ต่ำกว่าครึ่งหนึ่งของปีก่อน',t2p:'สัปดาห์ที่ 42 ได้ 109 คน เท่ากับ 61% ของค่าเฉลี่ย ต.ค. −58.2% และ พ.ย. −70.8% การลดลงกำลังขยายตัว',t2a:'รายทีม →',
+ t3h:'ยอดขายย้ายไปที่ พ.ย.–ธ.ค.',t3p:'61% ของยอดจองสัปดาห์นี้เดินทางเดือน พ.ย. และ 88% ของการเดินทาง ธ.ค. เป็นต่างประเทศ ต้องจองที่นั่งและสนามกอล์ฟล่วงหน้า',t3a:'การกระจายการจอง →',
+ t4h:'มีเพียง MICE ที่เกินเป้า',t4p:'อัตราบรรลุรวม ต.ค. 120.8% รายได้ต่อหัว 1.05 ล้านวอน ทำกำไรมากที่สุด ส่วน พ.ย. อยู่ที่ 92.9%',
+ k3:'แนวโน้มรายสัปดาห์',h2_3:'ยอดจองสัปดาห์ที่ 42 ต่ำกว่าปกติ 107 คน แต่ฝ่ายจองสูงกว่าปกติ 63 คน',lede3:'แท่งสีเทาคือช่วงต่ำสุด–สูงสุดของสัปดาห์เดียวกันปี 2024–2025 ขีดคือค่าเฉลี่ย จุดสีน้ำเงินคือปี 2026 GSA ต่ำกว่าช่วงปกติ 4 ใน 5 สัปดาห์',
+ n_res:'ฝ่ายจอง',csubW:'สัปดาห์ 38–42 · หน่วย: คน',ctT:'ยอดจองสัปดาห์ที่ 42 ตามประเทศ × ทีม',ctS:'ในประเทศ 52.8% ฝ่ายจอง 86.1% · หน่วย: คน',cmT:'สัดส่วนจุดหมาย',cmS:'จาก 1,272 คน สัปดาห์ที่ 42',src3:'ที่มา: ตัวชี้วัดการจอง ประชุมสัปดาห์ที่ 43 ปี 2026 (แนวโน้ม หน้า 2–3)',
+ k4:'การกระจายการจอง',h2_4:'61% ของยอดจองสัปดาห์นี้เดินทางเดือน พ.ย. เดือน ต.ค. ใกล้ปิดแล้ว และ ธ.ค. เป็นต่างประเทศ 88%',dT:'สัดส่วนเดือนเดินทางตามสัปดาห์ที่จอง',dS:'ยอดจองแต่ละสัปดาห์เดินทางเดือนใด · %',sT:'ในประเทศ · ต่างประเทศ ตามเดือนเดินทาง',sS:'ยอดจองสัปดาห์นี้ · หน่วย: คน',src4:'ที่มา: ตัวชี้วัดการจอง ประชุมสัปดาห์ที่ 43 (การกระจาย หน้า 5)',
+ k5:'ยอดขายทั้งบริษัท',h2_5:'ต.ค. รายได้ต่อหัวสูงขึ้นจนรายได้เกินปีก่อน ส่วน พ.ย. ยังขาดอีก 1,923 คนจึงจะถึงเป้า',lede5:'ไม่รวมตั๋วเครื่องบินและสาขา แถบแสดงผลเทียบเป้า เส้นตั้งคือผลเดือนเดียวกันปีก่อน',c10T:'เดินทาง ต.ค.',c10S:'อัตราบรรลุรวม 69.6%',c11T:'เดินทาง พ.ย.',c11S:'อัตราบรรลุรวม 46.6% · เร็วกว่า มิ.ย. และ ส.ค.',src5:'ที่มา: ตัวชี้วัดการจอง ประชุมสัปดาห์ที่ 43 (หน้า 6) วันทำงานที่น้อยลงในช่วง W-3 ทำให้ยอดจอง ต.ค. เติบโตช้าลง',
+ k6:'รายทีม',h2_6:'มีเพียง MICE ที่เกินเป้า ส่วน GSA ตั๋วเครื่องบิน และอินบาวด์ มีอัตราบรรลุรวม ต.ค. ไม่เกิน 35%',rT:'อัตราบรรลุรวม',rS:'รวมจำนวนคนและรายได้ · เส้นประคือเป้า 100%',tT:'ผล ต.ค. รายทีม',tS:'เทียบเดือนเดียวกันปีก่อน · คน (ตั๋วเป็นรายการ)',src6:'ที่มา: ตัวชี้วัดการจอง ประชุมสัปดาห์ที่ 43 (หน้า 7–9) ตั๋วเครื่องบินไม่มีเป้า พ.ย. จึงแสดงเฉพาะ ต.ค.',
+ k7:'ประเด็นสัปดาห์หน้า',h2_7:'5 เรื่องที่ต้องตัดสินใจสัปดาห์หน้า',
+ a1h:'ช่องว่างเป้า พ.ย. 1,923 คน',a1t:'สำคัญที่สุด',a1p:'ตัดสินใจว่าจะจัดโปรโมชันช่วงท้ายโดยเน้นแพ็กเกจในประเทศของฝ่ายจองหรือไม่ 83.6% ของการเดินทาง พ.ย. เป็นในประเทศ',a1w:'ฝ่ายจอง · ทั้งบริษัท',
+ a2h:'แผนฟื้นฟู GSA',a2t:'เร่งด่วน',a2p:'ตรวจสอบสาเหตุการลดลงรายพันธมิตร ต.ค. −58.2% และ พ.ย. −70.8% การลดลงกำลังขยายตัว',a2w:'ทีมขาย GSA & B2B',
+ a3h:'ช่องว่างอินบาวด์เดือน พ.ย.',a3t:'ตรวจสอบ',a3p:'เป้า พ.ย. 246 คน ทำได้ 7 คน ตรวจสอบว่ามีกรุ๊ปที่รอยืนยันหรือไม่',a3w:'อินบาวด์',
+ a4h:'จองสินค้าต่างประเทศ ธ.ค. ล่วงหน้า',a4t:'เตรียม',a4p:'88% ของยอดจอง ธ.ค. เป็นต่างประเทศ ล็อกที่นั่งและเวลาออกรอบของสินค้าไทยและจีนไว้ล่วงหน้า',a4w:'ฝ่ายจอง · ทีม MICE',
+ a5h:'การพึ่งพาสำนักงานใหญ่ของตั๋วเครื่องบิน',a5t:'หารือ',a5p:'42.3% ของรายการ (44.3% ของรายได้) ตั๋วเครื่องบินมาจากสำนักงานใหญ่ หารือแนวทางเพิ่มยอดขายภายนอก',a5w:'ตั๋วเครื่องบิน',
+ k8:'ตรวจสอบข้อมูล',h2_8:'4 จุดที่ต้องตรวจสอบในข้อมูลต้นฉบับ',lede8:'ตัวเลขในสรุปนี้นำมาจากต้นฉบับโดยตรง รายการด้านล่างควรแก้ไขในเอกสารสัปดาห์หน้า',
+ c1pg:'ปก',c1:'ปกระบุ <b>"ประชุมสัปดาห์ที่ 43"</b> แต่เนื้อหาใช้ข้อมูล<b>สัปดาห์ที่ 42</b> โปรดยืนยันว่าตั้งใจไว้',c2pg:'หน้า 5',c2:'ตารางประเทศเดือน ธ.ค. รวม <b>100 คน</b> แต่ถ้าสัดส่วน ธ.ค. คือ 25.5% ควรเป็น<b>ประมาณ 250 คน</b>',c3:'แถวสุดท้ายของตารางสัดส่วนระบุว่า <b>"สัปดาห์ที่ 41"</b> หากเป็นข้อมูลสัปดาห์ที่ 42 ควรแก้ป้าย และตรวจสอบคอลัมน์แรก <b>"ก.ย."</b> ว่าตรงกับเดือนเดินทางหรือไม่',c4pg:'หน้า 8',c4:'ข้อความ MICE ที่ระบุ <b>"ต.ค. 166 คน"</b> ตามตารางเป็นตัวเลขของ<b>เดือน พ.ย.</b>',
+ endH:'ขอบคุณ',endP:'ในการประชุมสัปดาห์ที่ 44 จะรายงานความคืบหน้าช่องว่าง พ.ย. และผลการตรวจสอบ GSA เป็นอันดับแรก'}
+};
+S.ko={};
+document.querySelectorAll('[data-i]').forEach(n=>{const k=n.dataset.i;if(!(k in S.ko))S.ko[k]=n.innerHTML;});
+
+/* ---------- dynamic labels ---------- */
+const D={
+ ko:{titles:['표지','요약','주간 예약 추세','예약 분포','전사 판매','팀별 현황','다음 주 논의','마무리'],present:'발표 모드',presentOff:'발표 모드 종료',
+   wk:n=>`${n}주`,yr:y=>`${y}년`,pax:n=>`${fmt(n)}명`,mo:['9월','10월','11월','12월'],
+   money:n=>`${(n/1e8).toFixed(1)}억 원`,perHead:n=>`${(n/1e4).toFixed(1)}만 원`,
+   range:(w,a,b)=>`${w} 2024·2025년 최저 ${fmt(a)}명 · 최고 ${fmt(b)}명`,avg:(w,v)=>`${w} 평균 ${fmt(v)}명`,cur:(w,v)=>`${w} 2026년 ${fmt(v)}명`,
+   country:'국가',total:'합계',share:'비중',teamShare:'팀 비중',other:'기타',dom:'국내',ovs:'해외',dep:m=>`${m} 출발`,topOvs:'해외 상위',
+   distTip:(w,m,v)=>`${w} 예약 중 ${m} 출발 ${v}%`,
+   actual:'실적',target:'목표',ly:'전년',paxL:'인원',rev:'매출',ph:'인당 매출',
+   salesH:['구분','목표','2026년 실적','2025년 동월','성장률','달성률'],
+   teamH:['팀','10월','전년 대비','11월','메모'],rateTip:(t,m,v)=>`${t} ${m} 종합달성률 ${v}%`,noTarget:'11월 목표 없음',
+   teams:{MICE:'MICE',res:'예약실',yn:'영남지사',gsa:'GSA',air:'항공',inb:'인바운드'},
+   tcol:['GSA&B2B','예약실','MICE팀','부산지사','인바운드'],
+   memo:{MICE:['pos','목표 초과','인당 105만 원'],res:[null,null,'전사 판매의 75.2%'],yn:[null,null,'인당 58만 원'],gsa:['neg','점검 필요','11월 −70.8%'],air:[null,null,'238건 발권 · 본사 의존 42.3%'],inb:['neg','점검 필요','11월 매출 0원']},
+   airUnit:n=>`${fmt(n)}건`,
+   c:{KR:'대한민국',TH:'태국',CN:'중국',VN:'베트남',JP:'일본',GU:'괌',MY:'말레이시아',ID:'인도네시아',KH:'캄보디아',PH:'필리핀',US:'미국'}},
+ en:{titles:['Cover','Summary','Weekly trend','Booking mix','Company sales','By team','Next week','Closing'],present:'Present',presentOff:'Exit present',
+   wk:n=>`W${n}`,yr:y=>`${y}`,pax:n=>`${fmt(n)}`,mo:['Sep','Oct','Nov','Dec'],
+   money:n=>`KRW ${(n/1e9).toFixed(2)}B`,perHead:n=>`KRW ${Math.round(n/1e3)}K`,
+   range:(w,a,b)=>`${w} 2024–2025: low ${fmt(a)}, high ${fmt(b)}`,avg:(w,v)=>`${w} average ${fmt(v)}`,cur:(w,v)=>`${w} 2026: ${fmt(v)} pax`,
+   country:'Country',total:'Total',share:'Share',teamShare:'Team share',other:'Other',dom:'Domestic',ovs:'Overseas',dep:m=>`${m} departures`,topOvs:'Top overseas',
+   distTip:(w,m,v)=>`${w} bookings departing ${m}: ${v}%`,
+   actual:'Actual',target:'Target',ly:'LY',paxL:'Pax',rev:'Revenue',ph:'Revenue per head',
+   salesH:['Item','Target','2026 actual','Same month 2025','Growth','Achievement'],
+   teamH:['Team','Oct','YoY','Nov','Note'],rateTip:(t,m,v)=>`${t} ${m} overall achievement ${v}%`,noTarget:'No Nov target',
+   teams:{MICE:'MICE',res:'Reservations',yn:'Yeongnam',gsa:'GSA',air:'Air',inb:'Inbound'},
+   tcol:['GSA&B2B','Reservations','MICE','Busan','Inbound'],
+   memo:{MICE:['pos','Above target','KRW 1.05M/head'],res:[null,null,'75.2% of company sales'],yn:[null,null,'KRW 580K/head'],gsa:['neg','Needs review','Nov −70.8%'],air:[null,null,'238 ticketed · 42.3% from HQ'],inb:['neg','Needs review','Nov revenue KRW 0']},
+   airUnit:n=>`${fmt(n)}`,
+   c:{KR:'Korea',TH:'Thailand',CN:'China',VN:'Vietnam',JP:'Japan',GU:'Guam',MY:'Malaysia',ID:'Indonesia',KH:'Cambodia',PH:'Philippines',US:'USA'}},
+ zh:{titles:['封面','摘要','每周趋势','预订分布','全公司销售','各团队','下周议题','结束'],present:'演示模式',presentOff:'退出演示',
+   wk:n=>`第${n}周`,yr:y=>`${y}年`,pax:n=>`${fmt(n)}人`,mo:['9月','10月','11月','12月'],
+   money:n=>`${(n/1e8).toFixed(1)}亿韩元`,perHead:n=>`${(n/1e4).toFixed(1)}万韩元`,
+   range:(w,a,b)=>`${w} 2024–2025年 最低${fmt(a)}人 · 最高${fmt(b)}人`,avg:(w,v)=>`${w} 平均${fmt(v)}人`,cur:(w,v)=>`${w} 2026年 ${fmt(v)}人`,
+   country:'国家',total:'合计',share:'占比',teamShare:'团队占比',other:'其他',dom:'国内',ovs:'海外',dep:m=>`${m}出发`,topOvs:'海外前列',
+   distTip:(w,m,v)=>`${w}预订中${m}出发 ${v}%`,
+   actual:'实绩',target:'目标',ly:'去年',paxL:'人数',rev:'销售额',ph:'人均销售额',
+   salesH:['项目','目标','2026年实绩','2025年同月','增长率','达成率'],
+   teamH:['团队','10月','同比','11月','备注'],rateTip:(t,m,v)=>`${t} ${m}综合达成率 ${v}%`,noTarget:'无11月目标',
+   teams:{MICE:'MICE',res:'预订部',yn:'岭南分公司',gsa:'GSA',air:'机票',inb:'入境'},
+   tcol:['GSA&B2B','预订部','MICE组','釜山分公司','入境'],
+   memo:{MICE:['pos','超额完成','人均105万韩元'],res:[null,null,'占全公司销售75.2%'],yn:[null,null,'人均58万韩元'],gsa:['neg','需检查','11月 −70.8%'],air:[null,null,'已出票238件 · 依赖总部42.3%'],inb:['neg','需检查','11月销售额0韩元']},
+   airUnit:n=>`${fmt(n)}件`,
+   c:{KR:'韩国',TH:'泰国',CN:'中国',VN:'越南',JP:'日本',GU:'关岛',MY:'马来西亚',ID:'印度尼西亚',KH:'柬埔寨',PH:'菲律宾',US:'美国'}},
+ th:{titles:['ปก','สรุป','แนวโน้ม','การกระจาย','ยอดขายรวม','รายทีม','สัปดาห์หน้า','ปิดท้าย'],present:'นำเสนอ',presentOff:'ออกจากการนำเสนอ',
+   wk:n=>`สป.${n}`,yr:y=>`${y}`,pax:n=>`${fmt(n)} คน`,mo:['ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+   money:n=>`${fmt(Math.round(n/1e6))} ล้านวอน`,perHead:n=>`${fmt(Math.round(n))} วอน`,
+   range:(w,a,b)=>`${w} ปี 2024–2025: ต่ำสุด ${fmt(a)} สูงสุด ${fmt(b)} คน`,avg:(w,v)=>`${w} เฉลี่ย ${fmt(v)} คน`,cur:(w,v)=>`${w} ปี 2026: ${fmt(v)} คน`,
+   country:'ประเทศ',total:'รวม',share:'สัดส่วน',teamShare:'สัดส่วนทีม',other:'อื่นๆ',dom:'ในประเทศ',ovs:'ต่างประเทศ',dep:m=>`เดินทาง ${m}`,topOvs:'ต่างประเทศอันดับต้น',
+   distTip:(w,m,v)=>`ยอดจอง ${w} เดินทาง ${m}: ${v}%`,
+   actual:'ผลจริง',target:'เป้า',ly:'ปีก่อน',paxL:'จำนวนคน',rev:'รายได้',ph:'รายได้ต่อหัว',
+   salesH:['รายการ','เป้า','ผลปี 2026','เดือนเดียวกันปี 2025','การเติบโต','อัตราบรรลุ'],
+   teamH:['ทีม','ต.ค.','เทียบปีก่อน','พ.ย.','หมายเหตุ'],rateTip:(t,m,v)=>`${t} อัตราบรรลุรวม ${m} ${v}%`,noTarget:'ไม่มีเป้า พ.ย.',
+   teams:{MICE:'MICE',res:'ฝ่ายจอง',yn:'สาขายองนัม',gsa:'GSA',air:'ตั๋วเครื่องบิน',inb:'อินบาวด์'},
+   tcol:['GSA&B2B','ฝ่ายจอง','ทีม MICE','สาขาปูซาน','อินบาวด์'],
+   memo:{MICE:['pos','เกินเป้า','1.05 ล้านวอน/หัว'],res:[null,null,'75.2% ของยอดขายทั้งบริษัท'],yn:[null,null,'580,000 วอน/หัว'],gsa:['neg','ต้องตรวจสอบ','พ.ย. −70.8%'],air:[null,null,'ออกตั๋ว 238 รายการ · พึ่งพาสำนักงานใหญ่ 42.3%'],inb:['neg','ต้องตรวจสอบ','รายได้ พ.ย. 0 วอน']},
+   airUnit:n=>`${fmt(n)} รายการ`,
+   c:{KR:'เกาหลีใต้',TH:'ไทย',CN:'จีน',VN:'เวียดนาม',JP:'ญี่ปุ่น',GU:'กวม',MY:'มาเลเซีย',ID:'อินโดนีเซีย',KH:'กัมพูชา',PH:'ฟิลิปปินส์',US:'สหรัฐฯ'}}
+};
+
+/* ---------- data (42주차 예약지표) ---------- */
+const WEEKLY={
+  res:[{w:38,min:433,max:745,avg:589,y:1057},{w:39,min:1089,max:1111,avg:1100,y:515},{w:40,min:695,max:905,avg:800,y:1149},{w:41,min:277,max:947,avg:612,y:678},{w:42,min:940,max:1124,avg:1032,y:1095}],
+  gsa:[{w:38,min:139,max:311,avg:225,y:116},{w:39,min:82,max:153,avg:118,y:37},{w:40,min:59,max:113,avg:86,y:132},{w:41,min:57,max:251,avg:154,y:27},{w:42,min:178,max:181,avg:180,y:109}]
+};
+const YEARS=[[2024,1441],[2025,1316],[2026,1272]];
+const COUNTRY=[['KR',[0,616,0,0,56]],['TH',[71,140,0,4,0]],['CN',[0,131,0,0,0]],['VN',[0,85,0,0,0]],['JP',[0,84,0,0,0]],['GU',[38,21,0,4,0]],['MY',[0,4,4,0,0]],['ID',[0,4,0,0,0]],['KH',[0,4,0,0,0]],['PH',[0,4,0,0,0]],['US',[0,2,0,0,0]]];
+const DIST=[[37,[13.2,54.9,26.0,6.0]],[38,[10.5,42.4,36.2,10.9]],[39,[11.5,46.3,28.2,14.0]],[40,[1.6,32.8,48.4,17.1]],[41,[2.6,10.8,61.0,25.5]]];
+const SPLIT=[{m:1,c:[['KR',79],['TH',14],['JP',8],['VN',4],['GU',2]]},{m:2,c:[['KR',503],['TH',29],['CN',28],['JP',18],['VN',12],['GU',4],['KH',4],['PH',4]]},{m:3,c:[['TH',37],['CN',28],['JP',16],['KR',12],['VN',7]]}];
+const PACE={p10:[{k:'paxL',t:3463,a:2604,ly:2798,m:0},{k:'rev',t:1932746632,a:1182207150,ly:1161617758,m:1}],p11:[{k:'paxL',t:3514,a:1591,ly:2641,m:0},{k:'rev',t:1697019564,a:822591540,ly:1553118826,m:1}]};
+const SALES=[[1,'paxL',3463,2604,2798,0],[1,'rev',1932746632,1182207150,1161617758,1],[1,'ph',558086,453997,415160,2],[2,'paxL',3514,1591,2641,0],[2,'rev',1697019564,822591540,1553118826,1],[2,'ph',482987,517028,588080,2]];
+const TEAMS=[['MICE',321,-8.0,166,120.8,92.9],['res',1958,5.1,1301,85.0,56.3],['yn',170,-4.5,73,45.6,22.7],['gsa',183,-58.2,117,35.3,20.1],['air',562,-55.3,null,30.0,null],['inb',142,-4.1,7,25.2,1.7]];
+
+const pct1=v=>(v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(1)+'%';
+
+/* ---------- renderers ---------- */
+function rangeChart(id,rows,team){const L_=D[LANG];
+  const s=document.getElementById(id); s.replaceChildren(); s.setAttribute('aria-label',team);
+  const W=520,H=300,L=46,R=24,T=16,B=36;
+  const peak=Math.max(...rows.map(r=>Math.max(r.max,r.y))); const step=peak>600?300:50; const top=Math.ceil(peak*1.08/step)*step;
+  const y=v=>T+(H-T-B)*(1-v/top); const band=(W-L-R)/rows.length;
+  for(let v=0;v<=top;v+=step){el('line',{x1:L,x2:W-R,y1:y(v),y2:y(v),class:v?'grid-l':'axis'},s);el('text',{x:L-8,y:y(v)+4,'text-anchor':'end',class:'t-muted num'},s,fmt(v));}
+  rows.forEach((r,i)=>{const cx=L+band*i+band/2; const w=L_.wk(r.w);
+    tip(el('line',{x1:cx,x2:cx,y1:y(r.min),y2:y(r.max),class:'range'},s),L_.range(w,r.min,r.max));
+    tip(el('line',{x1:cx-10,x2:cx+10,y1:y(r.avg),y2:y(r.avg),class:'avg'},s),L_.avg(w,r.avg));
+    tip(el('circle',{cx,cy:y(r.y),r:r.w===42?7:5.5,class:'dot'},s),L_.cur(w,r.y));
+    el('text',{x:cx+12,y:y(r.y)+4,class:r.w===42?'t-acc num':'t-strong num'},s,fmt(r.y));
+    el('text',{x:cx,y:H-12,'text-anchor':'middle',class:r.w===42?'t-strong':''},s,w);
+  });
+}
+function renderAll(){const L_=D[LANG];
+  // hero years
+  const mx=YEARS[0][1];
+  document.getElementById('heroYears').innerHTML=YEARS.map(([y,n],i)=>`<div class="yr num${i===2?' now':''}"><span>${L_.yr(y)}</span><span class="b"><i style="width:${(n/mx*100).toFixed(1)}%"></i></span><span class="n">${L_.pax(n)}</span></div>`).join('');
+  rangeChart('cRes',WEEKLY.res,L_.teams.res); rangeChart('cGsa',WEEKLY.gsa,'GSA');
+  // country table
+  const colT=L_.tcol.map((_,j)=>COUNTRY.reduce((s,r)=>s+r[1][j],0)); const all=colT.reduce((a,b)=>a+b,0);
+  let h=`<thead><tr><th>${L_.country}</th>`+L_.tcol.map(x=>`<th>${x}</th>`).join('')+`<th>${L_.total}</th><th>${L_.share}</th></tr></thead><tbody>`;
+  COUNTRY.forEach(([c,v])=>{const s=v.reduce((a,b)=>a+b,0);h+=`<tr><td>${L_.c[c]}</td>`+v.map(x=>`<td${x?'':' class="muted"'}>${x?fmt(x):'·'}</td>`).join('')+`<td><b>${fmt(s)}</b></td><td>${(s/all*100).toFixed(1)}%</td></tr>`;});
+  h+=`</tbody><tfoot><tr><td>${L_.total}</td>`+colT.map(x=>`<td>${fmt(x)}</td>`).join('')+`<td>${fmt(all)}</td><td>100%</td></tr><tr><td style="font-weight:500;color:var(--muted)">${L_.teamShare}</td>`+colT.map(x=>`<td style="font-weight:500;color:var(--muted)">${(x/all*100).toFixed(1)}%</td>`).join('')+'<td></td><td></td></tr></tfoot>';
+  document.getElementById('tCountry').innerHTML=h;
+  const tot=COUNTRY.map(([c,v])=>[c,v.reduce((a,b)=>a+b,0)]).slice(0,6); const cm=tot[0][1]; const rest=all-tot.reduce((s,r)=>s+r[1],0);
+  document.getElementById('cCountry').innerHTML=tot.map(([c,n])=>[L_.c[c],n,c]).concat([[L_.other,rest,'X']]).map(([c,n,k])=>`<div class="cbar${k==='KR'?'':' hl'} num"><span>${c}</span><span class="b"><i style="width:${n/cm*100}%"></i></span><span class="n">${fmt(n)} · ${(n/all*100).toFixed(1)}%</span></div>`).join('')+
+    `<p class="src" style="margin-top:12px">${L_.dom} ${(cm/all*100).toFixed(1)}% · ${L_.ovs} ${(100-cm/all*100).toFixed(1)}%</p>`;
+  // distribution
+  const s=document.getElementById('cDist'); s.replaceChildren(); s.setAttribute('aria-label',S[LANG].dT||S.ko.dT);
+  const W=640,H=300,L=64,R=12,T=8,B=28; const gap=(H-T-B)/DIST.length, bh=gap*0.66; const x=v=>L+(W-L-R)*v/100;
+  [0,25,50,75,100].forEach(v=>{el('line',{x1:x(v),x2:x(v),y1:T,y2:H-B,class:'grid-l'},s);el('text',{x:x(v),y:H-8,'text-anchor':'middle',class:'t-muted'},s,v+'%');});
+  const sty=[['bar-muted',.45],['bar-muted',1],['bar-acc',1],['bar-acc',.35]];
+  DIST.forEach(([w,vals],i)=>{const y0=T+gap*i+(gap-bh)/2; let acc=0; const wl=L_.wk(w);
+    el('text',{x:L-10,y:y0+bh/2+4,'text-anchor':'end',class:i===DIST.length-1?'t-strong':''},s,wl);
+    vals.forEach((v,j)=>{const r=el('rect',{x:x(acc),y:y0,width:Math.max(0,x(acc+v)-x(acc)-1.5),height:bh,rx:3,class:sty[j][0],'fill-opacity':sty[j][1]},s);
+      tip(r,L_.distTip(wl,L_.mo[j],v));
+      if(v>=9) el('text',{x:x(acc+v/2),y:y0+bh/2+4,'text-anchor':'middle',class:j===2?'lbl-in num':'t-strong num'},s,v.toFixed(1));
+      acc+=v;});
+  });
+  document.getElementById('lDist').innerHTML=L_.mo.map((m,j)=>`<span><i style="background:var(${j<2?'--range':'--brand'});opacity:${sty[j][1]}"></i>${m}</span>`).join('');
+  // split
+  document.getElementById('cSplit').innerHTML=SPLIT.map(({m,c})=>{const tt=c.reduce((a,r)=>a+r[1],0); const dom=(c.find(r=>r[0]==='KR')||[0,0])[1]; const dp=dom/tt*100;
+    const top=c.filter(r=>r[0]!=='KR').slice(0,3).map(r=>`${L_.c[r[0]]} ${r[1]}`).join(' · ');
+    return `<div style="margin-bottom:6px"><div style="display:flex;justify-content:space-between;gap:8px;font-size:13.5px"><b>${L_.dep(L_.mo[m])}</b><span class="num" style="color:var(--muted)">${L_.pax(tt)}</span></div>
+      <div class="split num"><span class="dom" style="width:${dp}%">${dp>=22?L_.dom+' '+dp.toFixed(1)+'%':''}</span><span class="ovs" style="width:${100-dp}%">${100-dp>=22?L_.ovs+' '+(100-dp).toFixed(1)+'%':''}</span></div>
+      <p style="font-size:12.5px;color:var(--ink-2);margin:-6px 0 14px">${L_.topOvs}: ${top}</p></div>`;}).join('');
+  // pace
+  ['p10','p11'].forEach(id=>{document.getElementById(id).innerHTML=PACE[id].map(r=>{const p=r.a/r.t*100,lp=r.ly/r.t*100; const f=r.m?L_.money:L_.pax;
+    return `<div class="pace-row"><div class="top"><span>${L_[r.k]}</span><b class="num">${p.toFixed(1)}%</b></div>
+      <div class="track" title="${L_[r.k]} ${f(r.a)} / ${L_.target} ${f(r.t)}"><div class="fill" style="width:${Math.min(p,100)}%"></div><div class="ly" style="left:${Math.min(lp,100)}%" data-l="${L_.ly} ${f(r.ly)}"></div></div>
+      <div class="foot num"><span>${L_.actual} ${f(r.a)}</span><span>${L_.target} ${f(r.t)}</span></div></div>`;}).join('');});
+  // sales table
+  const fm=[L_.pax,L_.money,L_.perHead];
+  document.getElementById('tSales').innerHTML=`<thead><tr>${L_.salesH.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>`+
+    SALES.map(([m,k,t,a,ly,f])=>{const g=(a/ly-1)*100;return `<tr><td>${L_.mo[m]} ${L_[k]}</td><td>${fm[f](t)}</td><td><b>${fm[f](a)}</b></td><td class="muted">${fm[f](ly)}</td><td class="${g<0?'neg':'pos'}">${pct1(g)}</td><td${f===2?' class="muted"':''}>${f===2?'–':(a/t*100).toFixed(1)+'%'}</td></tr>`;}).join('')+'</tbody>';
+  // team table
+  document.getElementById('tTeam').innerHTML=`<thead><tr>${L_.teamH.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>`+
+    TEAMS.map(([k,o,g,n])=>{const mm=L_.memo[k];return `<tr><td>${L_.teams[k]}</td><td><b>${k==='air'?L_.airUnit(o):fmt(o)}</b></td><td class="${g<0?'neg':'pos'}">${pct1(g)}</td><td${n==null?' class="muted"':''}>${n==null?'–':fmt(n)}</td><td style="text-align:left">${mm[0]?`<span class="tag ${mm[0]}">${mm[1]}</span> `:''}${mm[2]}</td></tr>`;}).join('')+'</tbody>';
+  // team rate chart
+  const c=document.getElementById('cTeam'); c.replaceChildren(); c.setAttribute('aria-label',S[LANG].rT||S.ko.rT);
+  const Wt=460,Ht=330,Lt=LANG==='th'||LANG==='en'?98:78,Rt=56,Tt=14,Bt=26; const max=130; const xt=v=>Lt+(Wt-Lt-Rt)*v/max; const g=(Ht-Tt-Bt)/TEAMS.length; const bh2=g*0.3;
+  [0,50,100].forEach(v=>{el('line',{x1:xt(v),x2:xt(v),y1:Tt,y2:Ht-Bt,class:v===100?'refline':'grid-l'},c);el('text',{x:xt(v),y:Ht-8,'text-anchor':'middle',class:v===100?'t-strong':'t-muted'},c,v+'%');});
+  TEAMS.forEach(([k,,,,o,n],i)=>{const y0=Tt+g*i+g*0.14; const t=L_.teams[k];
+    el('text',{x:Lt-10,y:y0+bh2+4,'text-anchor':'end',class:'t-strong'},c,t);
+    tip(el('rect',{x:Lt,y:y0,width:Math.max(2,xt(Math.min(o,max))-Lt),height:bh2,rx:3,class:'bar-acc'},c),L_.rateTip(t,L_.mo[1],o));
+    el('text',{x:xt(Math.min(o,max))+6,y:y0+bh2-2,class:o>=100?'t-acc num':'t-strong num'},c,o.toFixed(1)+'%');
+    if(n!=null){tip(el('rect',{x:Lt,y:y0+bh2+3,width:Math.max(2,xt(n)-Lt),height:bh2,rx:3,class:'bar-muted'},c),L_.rateTip(t,L_.mo[2],n));
+      el('text',{x:xt(n)+6,y:y0+bh2*2+1,class:'t-muted num'},c,n.toFixed(1)+'%');}
+    else el('text',{x:Lt+6,y:y0+bh2*2+1,class:'t-muted'},c,L_.noTarget);
+  });
+  document.getElementById('lTeam').innerHTML=`<span><i style="background:var(--brand)"></i>${L_.mo[1]}</span><span><i style="background:var(--range)"></i>${L_.mo[2]}</span>`;
+}
+
+/* ---------- language ---------- */
+const sw=document.getElementById('langSw'); const pb=document.getElementById('presentBtn');
+function setLang(l){LANG=S[l]?l:'ko'; document.documentElement.lang=LANG;
+  document.querySelectorAll('[data-i]').forEach(n=>{const k=n.dataset.i;const v=(S[LANG]&&S[LANG][k]!=null)?S[LANG][k]:S.ko[k];if(v!=null)n.innerHTML=v;});
+  [...sw.children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===LANG)));
+  pb.textContent=document.body.classList.contains('present')?D[LANG].presentOff:D[LANG].present;
+  renderAll(); buildDots(); update();
+  try{localStorage.setItem('tl-brief-lang',LANG);}catch(e){}
+}
+sw.addEventListener('click',e=>{const b=e.target.closest('button[data-lang]');if(b)setLang(b.dataset.lang);});
+
+/* ---------- navigation ---------- */
+const slides=[...document.querySelectorAll('.slide')]; const dots=document.getElementById('dots');
+function buildDots(){dots.replaceChildren();slides.forEach((sl,i)=>{const a=document.createElement('a');a.href='#'+sl.id;a.setAttribute('aria-label',D[LANG].titles[i]);a.innerHTML=`<span>${i+1}. ${D[LANG].titles[i]}</span>`;dots.appendChild(a);});}
+const topbar=document.getElementById('topbar'),crumb=document.getElementById('crumb'),count=document.getElementById('count'),prog=document.getElementById('progress');
+let cur=0;
+function current(){const mid=window.innerHeight*0.4;let idx=0;slides.forEach((sl,i)=>{if(sl.getBoundingClientRect().top<=mid)idx=i;});return idx;}
+function update(){cur=current();const sl=slides[cur];const dark=!!sl.dataset.dark;
+  topbar.classList.toggle('on-dark',dark);dots.classList.toggle('on-dark',dark);
+  crumb.textContent=(cur?String(cur).padStart(2,'0')+' · ':'')+D[LANG].titles[cur];count.textContent=`${cur+1} / ${slides.length}`;
+  [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===cur));
+  const h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(h>0?window.scrollY/h*100:0)+'%';}
+function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
+document.getElementById('prev').addEventListener('click',()=>go(cur-1));
+document.getElementById('next').addEventListener('click',()=>go(cur+1));
+document.addEventListener('keydown',e=>{if(e.target.closest('input,textarea,select'))return;
+  if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key)){e.preventDefault();go(cur+1);}
+  else if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();go(cur-1);}
+  else if(e.key==='Home'){e.preventDefault();go(0);}else if(e.key==='End'){e.preventDefault();go(slides.length-1);}});
+window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);
+pb.addEventListener('click',()=>{const on=document.body.classList.toggle('present');pb.textContent=on?D[LANG].presentOff:D[LANG].present;
+  try{if(on&&document.documentElement.requestFullscreen)document.documentElement.requestFullscreen().catch(()=>{});else if(!on&&document.fullscreenElement)document.exitFullscreen().catch(()=>{});}catch(err){}});
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&document.body.classList.contains('present')){document.body.classList.remove('present');pb.textContent=D[LANG].present;}});
+
+let saved='ko'; try{saved=localStorage.getItem('tl-brief-lang')||'ko';}catch(e){}
+setLang(saved);
+const hh=location.hash.slice(1); if(hh&&document.getElementById(hh)) setTimeout(()=>document.getElementById(hh).scrollIntoView(),50);
+})();
+</script>
+
+</body></html>
